@@ -34,3 +34,6 @@
 /public/packs-test
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore node_modules folder
+/node_modules

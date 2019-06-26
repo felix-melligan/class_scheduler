@@ -66,6 +66,7 @@ Scheduling:
 
 ## Get started
 
+- `$ npm install`
 - `$ bundle install`
 - `$ yarn install`
 - `$ rake db:create RAILS_ENV=development`
