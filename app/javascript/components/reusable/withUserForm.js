@@ -1019,7 +1019,7 @@ const withUserForm = (WrappedComponent, schema, wrappedProps) => {
 
     sortArrayProps(propsObject) {
       Object.values(propsObject).map(item => {
-        if (item instanceof Array) { item.sort(); }
+        if (item instanceof Array) item.sort();
       });
     }
   }
