@@ -32,7 +32,7 @@ class MessageButtons extends Component {
             className='messageButtonItem'
             label={ (
               <span>
-                <div className='searchResultRequestIcon'>
+                <div className='searchResultItemRequestIcon'>
                   <EmailIcon color='white' />
                 </div>
                 <FormattedMessage
