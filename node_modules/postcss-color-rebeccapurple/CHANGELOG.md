@@ -1,4 +1,19 @@
-# 3.0.0 - 2016-05-10
+# 4.0.1 - 2018-09-18
+
+- Updated: PostCSS Values Parser v2+
+
+# 4.0.0 - 2018-09-17
+
+- Updated: Support for PostCSS v7+
+- Updated: Support for Node v6+
+
+# 3.1.0 - 2018-05-01
+
+- Improve `rebeccapurple` pre-parse word detection
+- Switched from `postcss-value-parser` to `postcss-values-parser`
+- Bump `postcss` from `^6.0.1` to `^6.0.22`
+
+# 3.0.0 - 2017-05-10
 
 - Added: compatibility with postcss v6.x
 

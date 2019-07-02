@@ -63,6 +63,8 @@ const withUserForm = (WrappedComponent, schema, wrappedProps) => {
         showLanguages: false,
         user: props.currentUser
       };
+
+      this.sortArrayProps(props);
     }
 
     render() {
@@ -79,12 +81,10 @@ const withUserForm = (WrappedComponent, schema, wrappedProps) => {
           thumbnail_image,
           description,
           timezone,
-          how_they_found_us,
           email_notification
         },
         currentUser,
         timezones,
-        how_they_found_us_options
       } = this.props;
 
       return (
@@ -114,10 +114,12 @@ const withUserForm = (WrappedComponent, schema, wrappedProps) => {
                 className='userFormInputField email'
                 hintText=''
                 floatingLabelText={
-                  <FormattedMessage
-                    id='UserForm.email'
-                    defaultMessage='Email'
-                  />
+                  (
+                    <FormattedMessage
+                      id='UserForm.email'
+                      defaultMessage='Email'
+                    />
+                  )
                 }
                 floatingLabelFixed
                 errorText={ errors.email }
@@ -133,10 +135,12 @@ const withUserForm = (WrappedComponent, schema, wrappedProps) => {
                 className='userFormInputField phoneNumber'
                 hintText=''
                 floatingLabelText={
-                  <FormattedMessage
-                    id='UserForm.phoneNumber'
-                    defaultMessage='Phone Number'
-                  />
+                  (
+                    <FormattedMessage
+                      id='UserForm.phoneNumber'
+                      defaultMessage='Phone Number'
+                    />
+                  )
                 }
                 floatingLabelFixed
                 errorText={ errors.phone_number }
@@ -152,10 +156,12 @@ const withUserForm = (WrappedComponent, schema, wrappedProps) => {
                 hintText=''
                 className='userFormInputField firstName'
                 floatingLabelText={
-                  <FormattedMessage
-                    id='UserForm.firstName'
-                    defaultMessage='First Name'
-                  />
+                  (
+                    <FormattedMessage
+                      id='UserForm.firstName'
+                      defaultMessage='First Name'
+                    />
+                  )
                 }
                 floatingLabelFixed
                 errorText={ errors.first_name }
@@ -177,7 +183,7 @@ const withUserForm = (WrappedComponent, schema, wrappedProps) => {
               { this.renderMeetUpToggle() }
 
               <Badge
-                badgeContent={ <span onClick={ this.handleShowDialog }> <InfoIcon /> </span> }
+                badgeContent={ <span onClick={ this.handleShowDialog } onKeyPress={ this.handleShowDialog }> <InfoIcon /> </span> }
                 badgeStyle={ { transform: 'translateY(18px)' } }
                 style={ { padding: '0' } }
               >
@@ -1014,6 +1020,12 @@ const withUserForm = (WrappedComponent, schema, wrappedProps) => {
         );
       }
     }
+
+    sortArrayProps(propsObject) {
+      Object.values(propsObject).map(item => {
+        if (item instanceof Array) item.sort();
+      });
+    }
   }
 
   UserForm.propTypes = {
@@ -1028,6 +1040,7 @@ const withUserForm = (WrappedComponent, schema, wrappedProps) => {
       email: PropTypes.string,
       phone_number: PropTypes.string,
       languages: PropTypes.array,
+      how_they_found_us: PropTypes.string,
       password: PropTypes.string,
       password_confirmation: PropTypes.string,
       contact_permission: PropTypes.bool,
@@ -1035,7 +1048,9 @@ const withUserForm = (WrappedComponent, schema, wrappedProps) => {
       current_password: PropTypes.string,
       thumbnail_image: PropTypes.oneOfType([ PropTypes.string, PropTypes.object ]),
       timezone: PropTypes.string,
-      locale: PropTypes.string
+      locale: PropTypes.string,
+      description: PropTypes.string,
+      email_notification: PropTypes.bool
     }),
 
     match: PropTypes.shape({
