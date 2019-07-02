@@ -192,12 +192,12 @@ const withUserForm = (WrappedComponent, schema, wrappedProps) => {
                   value={ address }
                   hintText=''
                   className='userFormInputField address'
-                  floatingLabelText={
+                  floatingLabelText={ (
                     <FormattedMessage
                       id='UserForm.address'
                       defaultMessage='Street Address'
                     />
-                  }
+                  ) }
                   floatingLabelFixed
                   multiLine
                   errorText={ errors.address }
@@ -399,7 +399,7 @@ const withUserForm = (WrappedComponent, schema, wrappedProps) => {
               label={ wrappedProps.primaryButtonLabel }
               primary
               disabled
-              disabledBackgroundColor={ "#D3D4D7" }
+              disabledBackgroundColor="#D3D4D7"
             />
           </div>
         );
@@ -1039,6 +1039,7 @@ const withUserForm = (WrappedComponent, schema, wrappedProps) => {
       country: PropTypes.string,
       email: PropTypes.string,
       phone_number: PropTypes.string,
+      how_they_found_us: PropTypes.string,
       languages: PropTypes.array,
       password: PropTypes.string,
       password_confirmation: PropTypes.string,

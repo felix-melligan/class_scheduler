@@ -51,7 +51,7 @@ class ConversationPage extends Component {
   renderReceivedMessages() {
     const { conversation: { messages } } = this.state;
 
-    return _.map(messages, ({ body, subject, sent_on, sender_first_name, sender_avatar, unread }, index) => {
+    return _.map(messages.reverse(), ({ body, subject, sent_on, sender_first_name, sender_avatar, unread }, index) => {
 
       return (
         <Message

@@ -7,21 +7,14 @@ class ReviewAsStars extends Component {
   render() {
     const { ratingCount } = this.props;
 
-    if (ratingCount > 0) {
-      return (
-        <div>
-          <div className='reviewAsStarsStarContainer'>
-            { this.renderStars() }
-          </div>
-
-          <span className='reviewAsStarsLabel'>
-            { `${ratingCount} rating(s)`}
-          </span>
-        </div>
-      );
-    } else {
-      return null;
-    }
+    return (
+      <div className='reviewAsStarsStarContainer'>
+        { this.renderStars() }
+        <span className='reviewAsStarsLabel'>
+          { `${ratingCount} rating(s)`}
+        </span>
+      </div>
+    );
   }
 
   renderStars() {

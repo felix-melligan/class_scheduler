@@ -1,0 +1,14 @@
+.searchResultItemRequest, .searchResultItemVisitProfile {
+    width:45%;
+}
+
+.searchResultItemRequest > div {
+    background-color: #29aae2;
+    color: white;
+}
+
+.searchResultItemRequestIcon {
+    padding-right: 4px;
+    display: inline-block;
+    transform: translateY(5px);
+}

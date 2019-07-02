@@ -16,6 +16,7 @@ import { postData } from './utils/sendData';
 import AvailabilitiesTable from './AvailabilitiesTable';
 import Header from './reusable/Header';
 import CommentContainer from './CommentContainer';
+import PageHeader from './reusable/PageHeader';
 
 import ReviewContainer from './ReviewContainer';
 import Footer from './reusable/Footer';
@@ -33,6 +34,7 @@ class UserProfile extends Component {
     this.updateStars = this.updateStars.bind(this);
     this.handleViewProfileClick = this.handleViewProfileClick.bind(this);
     this.handleHideSnackBar = this.handleHideSnackBar.bind(this);
+    this.formatUserName = this.formatUserName.bind(this);
 
     const { review : { id } } = props;
 
@@ -59,12 +61,20 @@ class UserProfile extends Component {
     });
   }
 
+  formatUserName(first_name) {
+    return first_name.charAt(0).toUpperCase().concat(first_name.substring(1));
+  }
+
   render() {
     const { currentUser } = this.props;
 
     return (
       <div>
         <Header currentUser={ currentUser } />
+        <PageHeader title={
+            this.formatUserName(currentUser.first_name)
+            }
+          />
         <Paper zDepth={ 1 } className='paperOverride userProfilePaper' rounded={ false }>
           { this.renderContent() }
         </Paper>
@@ -114,12 +124,12 @@ class UserProfile extends Component {
             <Link to={ { pathname: '/messages/new', query: { recipient: url_slug, userName: first_name } } } className='userProfileLink' >
               <RaisedButton
                 className='userProfileMessageButton'
-                label={
+                label={ (
                   <FormattedMessage
                     id='UserProfile.messageUser'
                     defaultMessage='Message User'
                   />
-                }
+                ) }
                 primary
               />
             </Link>
@@ -137,8 +147,11 @@ class UserProfile extends Component {
                   <FormattedMessage
                     id='UserProfile.firstName'
                     defaultMessage='First Name'
-                  />:
-                  <span> { first_name }</span>
+                  />
+                  :
+                  <span>
+                    { first_name }
+                  </span>
                 </div>
 
                 { this.renderLocation() }
@@ -147,22 +160,29 @@ class UserProfile extends Component {
                   <FormattedMessage
                     id='UserProfile.programsOffered'
                     defaultMessage='Programs'
-                  />: { programs? programs.join(', ') : '' }
+                  />
+                  :
+                  { programs? programs.join(', ') : '' }
                 </div>
 
                 <div className='userProfileField'>
                   <FormattedMessage
                     id='UserProfile.lastLogIn'
                     defaultMessage='Last logged in'
-                  />: { user.last_logged_in}
+                  />
+                  :
+                  { user.last_logged_in }
                 </div>
 
                 <div className='userProfileField'>
                   <FormattedMessage
                     id='UserProfile.moreInformation'
                     defaultMessage='A bit more information'
-                  />:
-                  <span> { this.renderUserDescription() } </span>
+                  />
+                  :
+                  <span>
+                    { this.renderUserDescription() }
+                  </span>
                 </div>
               </div>
 
@@ -196,12 +216,12 @@ class UserProfile extends Component {
         <div className='userProfileBackButton'>
           <FlatButton
             primary
-            label={
+            label={ (
               <FormattedMessage
                 id='UserProfile.Back'
                 defaultMessage='Back to search results'
               />
-            }
+            ) }
             onClick={ this.handleViewProfileClick }
           />
         </div>
@@ -231,8 +251,11 @@ class UserProfile extends Component {
           <FormattedMessage
             id='UserProfile.location'
             defaultMessage='Location'
-          />:
-          <span> { this.renderUserLocation() }</span>
+          />
+          :
+          <span>
+            { this.renderUserLocation() }
+          </span>
         </div>
       );
     }
@@ -272,7 +295,7 @@ class UserProfile extends Component {
 
     if (!_.isEmpty(thumbnail_image) && !_.endsWith(thumbnail_image, 'missing.png')) {
       return (
-        <div className='userProfileImageContainer'  >
+        <div className='userProfileImageContainer'>
           <img src={ thumbnail_image } alt='User Profile' className='userProfileImage' />
         </div>
       );
@@ -309,7 +332,7 @@ class UserProfile extends Component {
         }
       } else if (locale) {
         return `/${locale}/reviews`;
-      } else {
+      } else {FormattedMessage
         return '/reviews';
       }
     }();

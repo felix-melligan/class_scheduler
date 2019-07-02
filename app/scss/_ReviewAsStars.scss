@@ -1,10 +1,10 @@
 .reviewAsStarsStarContainer {
     margin-top: 12px;
     display: block;
-    background-color: rgb(41, 170, 226);
     padding: 4px;
     border-radius: 2px;
     width: 160px;
+    text-align: center;
 }
 
 .reviewAsStarsStarItem {
@@ -13,9 +13,8 @@
     height: 24px;
     background-position: center;
     background-size: 80%;
-    background-image: url('/assets/white_star.svg');
+    background-image: url('/assets/white_star_black_bg.svg');
     background-repeat: no-repeat;
-    background-color: rgb(41, 170, 226);
     padding: 4px;
 }
 

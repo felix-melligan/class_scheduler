@@ -1,13 +1,10 @@
-.searchResultItemRequest, .searchResultItemVisitProfile {
-    width: 45%;
-}
-
 .searchResultItemDetails p {
+    width: 100%;
     min-height: 14px;
 }
 
 .searchResultItemTruncate {
-    width: 250px;
+    text-align: left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -16,7 +13,12 @@
 .searchResultItemCard {
     width: 100%;
     max-width: none;
-    margin-bottom: 12px;
+    text-align: center;
+    padding: 5px;
+}
+
+.searchResultItemCardSubheader {
+    height: 50%;
 }
 
 .searchResultItemAvatar {
@@ -28,48 +30,23 @@
     margin-top: 12px;
 }
 
-.searchResultItemRequest {
-    margin-right: 2px;
-}
-
-.searchResultItemRequestIcon {
-    display: inline-block;
-    transform: translateY(5px);
-    margin-right: 12px;
-}
-
 .searchResultItemDetails {
+    text-align: left;
     display: block;
-}
-
-
-.searchResultItemDetails {
-    white-space: unset;
 }
 
 @media (min-width: 750px) {
     .searchResultItemCard {
         max-width: 48%;
-        margin: 0 6px 12px 0;
     }
 
     .searchResultItemAvatar, .searchResultItemDetails {
         display: inline-block;
     }
-
-    .searchResultItemRequest {
-        margin-right: 12px;
-    }
-
-    .searchResultItemRequestIcon {
-        margin-right: 12px;
-    }
-
 }
 
 @media (min-width: 1100px) {
     .searchResultItemCard {
         max-width: 32%;
-        margin-right: 12px;
     }
 }

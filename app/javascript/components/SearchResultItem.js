@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import MoodIcon from 'material-ui/svg-icons/social/mood';
 import { Card, CardHeader } from 'material-ui/Card';
+import { FormattedMessage } from 'react-intl';
 
 import ReviewAsStars from './ReviewAsStars';
 import formatLink from './utils/Link';
@@ -21,7 +22,7 @@ class SearchResultItem extends Component {
     return (
       <Card className='searchResultItemCard'>
         <CardHeader
-          style={ { height: '245px' } }
+          className='searchResultItemCardSubheader'
           title={ firstName }
           subtitle={ (
             <div className='searchResultItemDetails'>
@@ -96,7 +97,12 @@ class SearchResultItem extends Component {
     if (isCurrentUserLocated) {
       return _.compact([ city, state, country ]).join(', ');
     } else {
-      return null;
+      return (
+        <FormattedMessage
+          id="SearchResults.Location"
+          default="Unknown"
+        />
+      );
     }
   }
 }

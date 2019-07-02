@@ -4,10 +4,9 @@
     height: 28px;
     background-position: 50% 35%;
     background-size: 80%;
-    background-image: url('/assets/white_star.svg');
+    background-image: url('/assets/white_star_black_bg.svg');
     background-repeat: no-repeat;
     cursor: pointer;
-    background-color: rgb(41, 170, 226);
     padding: 4px;
 }
 
@@ -24,7 +23,7 @@
 }
 
 .reviewContainerReview .reviewContainerStar {
-    background-image: url('/assets/white_star.svg');
+    background-image: url('/assets/white_star_black_bg.svg');
 }
 
 .reviewContainerReview:hover .reviewContainerStar {
@@ -32,7 +31,7 @@
 }
 
 .reviewContainerReview .reviewContainerStar:hover ~ .reviewContainerStar {
-    background-image: url('/assets/white_star.svg');
+    background-image: url('/assets/white_star_black_bg.svg');
 }
 
 
@@ -75,7 +74,6 @@
     .reviewContainerReview {
         margin: 0 0 12px;
         display: block;
-        background-color: rgb(41, 170, 226);
         border-radius: 2px;
     }
 }

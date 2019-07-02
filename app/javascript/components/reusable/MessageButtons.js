@@ -28,14 +28,15 @@ class MessageButtons extends Component {
     return (
       <CardActions>
         <Link to={ { pathname: formatLink('/messages/new', locale), query: { recipient: newMessageRecipient, userName: newMessageFirstName } } }>
-          <RaisedButton
-            className='messageButtonItem'
+          <FlatButton
+            className='searchResultItemRequest'
             label={ (
               <span>
                 <div className='searchResultItemRequestIcon'>
                   <EmailIcon color='white' />
                 </div>
                 <FormattedMessage
+                  className="searchResultItemRequestIconMessage"
                   id={ messageType.id }
                   defaultMessage={ messageType.default }
                     />
